@@ -19,6 +19,7 @@ state_pairs = [("teams.group teams.team", "base_teams"),
                ("auth.user makahiki_profiles makahiki_avatar", "test_users"),
                ("teams.post", "test_posts"),
                ("energy_goals", "test_energy_goals"),
+               ("myapp.questions", "default_questions"),
                ("prizes.prize prizes.raffledeadline prizes.raffleprize", "test_prizes")]
 """Tuples of (<state info to extract>, <json file name in which to write the data>)."""
 

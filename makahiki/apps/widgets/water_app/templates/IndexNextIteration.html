@@ -1,0 +1,53 @@
+<div class="content-box">
+      <div class="content-box-title">
+          Wai Conserve
+          <a href="#" style="float: right">
+              <img src="{{ STATIC_URL}}images/icons/icon-help-sm.png" width="20"
+                   align="center"
+                   title="Click to get help about this window"
+                   onclick="toggleHelp(event, 'widget', 'water-app'); return false;" />
+          </a>
+          
+      </div>
+            <div class="content-box-contents">
+      <script type="text/javascript">
+      var data = [
+        {% for u in view_objects.water_app.questions %}
+         ["{{ u.question }}",
+          "{{ u.a }}",
+          "{{ u.b }}",
+          "{{ u.c }}",
+          "{{ u.d }}",
+          "{{u.answer}}" ],
+    	{% endfor %}
+        ]
+
+       var i = 0; 
+       document.getElementById("a0").innerHTML=data[i][0];
+       document.getElementById("a1").innerHTML=data[i][1];
+       document.getElementById("a2").innerHTML=data[i][2];
+       document.getElementById("a3").innerHTML=data[i][3];       
+       document.getElementById("a4").innerHTML=data[i][4];
+       document.write(data[0][0]);
+       function click() {
+         i++; 
+       }
+       
+        </script>
+      <table>
+      <tr><td>Time Lapsed: </td><td><label id="time" align="left"></label></td><td>Score:</td><label id="score"></label></tr>
+      <tr><td>Answer: </td><td><label id="ans"></p></td><td></td><td></td></tr>
+      </table>
+      <label id="a0" align="left"></br>
+          <form>
+          <input type="radio" name="qu" value="a"><label id="a1" align="left"></label></br>
+          <input type="radio" name="qu" value="b"><label id="a2" align="left"></label></br>
+          <input type="radio" name="qu" value="c"><label id="a3" align="left"></label></br>
+          <input type="radio" name="qu" value="d"><label id="a4" align="left"></label></br>
+          </form> 
+
+
+      </div>
+
+      
+</div>

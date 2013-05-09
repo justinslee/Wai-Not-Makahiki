@@ -1,0 +1,90 @@
+[
+    {
+        "pk": 1,
+        "model": "prizes.prize",
+        "fields": {
+            "title": "Amazon Certificate",
+            "round": 1,
+            "image": "media/prizes/amazon.jpg",
+            "award_to": "individual_overall",
+            "value": 20,
+            "competition_type": "points",
+            "short_description": "$20 Amazon Gift Certificate for the individual with the highest number of points at the end of the Beta Test.",
+            "long_description": "Books, notebooks, magazines, art supplies, computers... you name it, Amazon's got it. With this gift certificate you'll be able to pick something up that you need (or maybe just want!).\r\n\r\nThis $20 gift certificate goes to the individual with the highest point total at the end of the Beta Test."
+        }
+    },
+    {
+        "pk": 4,
+        "model": "prizes.prize",
+        "fields": {
+            "title": "Bubbies Certificate",
+            "round": 1,
+            "image": "media/prizes/bubbies-logo.jpg",
+            "award_to": "team_overall",
+            "value": 5,
+            "competition_type": "points",
+            "short_description": "A $5 Bubbies Gift Certificate (gets you a single scoop cone) for each member of the team with the most points earned during the Beta Test.",
+            "long_description": "This gift certificate will score you one free ice cream cone from Bubbie's Ice Cream, just a short walk from the residence halls and one of the best ice cream parlors in Hawaii. \r\n\r\nTo win this $5 gift certificate, your team must earn more points than any other team during the Beta Test."
+        }
+    },
+    {
+        "pk": 2,
+        "model": "raffle.raffleprize",
+        "fields": {
+            "description": "Bid on this to rock your very own Jack Johnson t-shirt from his To The Sea Tour.  Size: L",
+            "title": "JJ tshirt (L)",
+            "round": 1,
+            "image": "media/prizes/jack-johnson-tshirt.jpg",
+            "winner": null,
+            "value": 20
+        }
+    },
+    {
+        "pk": 9,
+        "model": "raffle.raffleprize",
+        "fields": {
+            "description": "Bid on this to rock your very own Jack Johnson t-shirt from his To The Sea Tour.  Size: S",
+            "title": "JJ tshirt (S)",
+            "round": 1,
+            "image": "media/prizes/jack-johnson-tshirt.jpg",
+            "winner": null,
+            "value": 20
+        }
+    },
+    {
+        "pk": 10,
+        "model": "raffle.raffleprize",
+        "fields": {
+            "description": "Use this gift certificate to score your very own double dip cone at Bubbies Ice Cream Parlor, or else use it on a down payment for a larger purchase!",
+            "title": "Bubbies Cone",
+            "round": 1,
+            "image": "media/prizes/bubbies-storefront.jpg",
+            "winner": null,
+            "value": 5
+        }
+    },
+    {
+        "pk": 14,
+        "model": "raffle.raffleprize",
+        "fields": {
+            "description": "Want to keep learning about your energy consumption even after the Kukui Cup is over?  Bid on your very own Belkin Conserve Insight Energy Monitor!",
+            "title": "Energy Meter",
+            "round": 1,
+            "image": "media/prizes/belkin-energy-monitor.jpg",
+            "winner": null,
+            "value": 30
+        }
+    },
+    {
+        "pk": 25,
+        "model": "raffle.raffleprize",
+        "fields": {
+            "description": "What do beer cans, car tires and water bottles have in common? Not much unless you're renegade architect Michael Reynolds, in which case they are tools of choice for producing thermal mass and energy-independent housing. For 30 years New Mexico-based Reynolds and his green disciples have devoted their time to advancing the art of \"Earthship Biotecture\" by building self-sufficient, off-the-grid communities where design and function converge in eco-harmony. However, these experimental structures that defy state standards create conflict between Reynolds and the authorities, who are backed by big business. Frustrated by antiquated legislation, Reynolds lobbies for the right to create a sustainable living test site. While politicians hum and ha, Mother Nature strikes, leaving communities devastated by tsunamis and hurricanes. Reynolds and his crew seize the opportunity to lend their pioneering skills to those who need it most. Shot over three years and in four countries, Garbage Warrior is a timely portrait of a determined visionary, a hero of the 21st century.",
+            "title": "Garbage Warrior",
+            "round": 1,
+            "image": "media/prizes/garbage-warrior.png",
+            "winner": null,
+            "value": 20
+        }
+    }
+]

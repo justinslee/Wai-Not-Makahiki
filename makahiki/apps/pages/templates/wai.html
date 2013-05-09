@@ -14,14 +14,14 @@
     <div class="container-fluid">
         <div class="row-fluid">
             <!-- left column -->
-            <div class="span8">
+            <div class="span6">
                 {% for template in view_objects.left_templates %}
                     {% include template %}
                 {% endfor %}
             </div>
 
             <!-- right column -->
-            <div class="span4">
+            <div class="span6">
                 {% for template in view_objects.right_templates %}
                     {% include template %}
                 {% endfor %}

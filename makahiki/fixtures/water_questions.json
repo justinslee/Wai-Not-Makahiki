@@ -1,0 +1,290 @@
+[
+    {
+        "pk": 1,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "What percent of all the water on Earth is fresh water?",
+            "a": "2.0%",
+            "b": "2.5%",
+            "c": "4.0%",
+            "d": "5.0%",
+            "answer": "b"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "What percent of fresh water is readily available for human use?",
+            "a": "8.3%",
+            "b": "23.3%",
+            "c": "31.4%",
+            "d": "53.1%",
+            "answer": "c"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "What is the main use of saline groundwater in Hawaii?",
+            "a": "Industrial Cleaning",
+            "b": "Agriculture",
+            "c": "Human Consumption",
+            "d": "Thermo-electric power",
+            "answer": "d"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "What is the average amount of water a bathtub holds?",
+            "a": "15 gallons",
+            "b": "20 gallons",
+            "c": "28 gallons",
+            "d": "36 gallons",
+            "answer": "d"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "How much water does a shower use each minute?",
+            "a": "2 gallons",
+            "b": "4 gallons",
+            "c": "6 gallons",
+            "d": "8 gallons",
+            "answer": "a"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "How much water can be wasted during brushing teeth?",
+            "a": ".5 gallons",
+            "b": "1 gallon",
+            "c": "2 gallons",
+            "d": "3 gallons",
+            "answer": "b"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "How much water is used per minute by dishwashing by hand?",
+            "a": "1 gallon",
+            "b": "2 gallons",
+            "c": "4 gallons",
+            "d": "5 gallons",
+            "answer": "b"
+        }
+    },   
+    {
+        "pk": 8,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "How much water is used by an efficient dishwasher?",
+            "a": "1 gallon",
+            "b": "4 gallons",
+            "c": "8 gallons",
+            "d": "12 gallons",
+            "answer": "b"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "How many gallons of water is used on old washing machines per load?",
+            "a": "10 gallons",
+            "b": "20 gallons",
+            "c": "30 gallons",
+            "d": "40 gallons",
+            "answer": "d"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "How much water does a normal toilet use on average per flush?",
+            "a": "2 gallons",
+            "b": "3 gallons",
+            "c": "4 gallons",
+            "d": "5 gallons",
+            "answer": "b"
+        }
+    },    
+    {
+        "pk": 11,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "How much water does the average person use?",
+            "a": "30-60",
+            "b": "60-80",
+            "c": "80-100",
+            "d": "100-150",
+            "answer": "c"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "How much water is used on average for watering plants per minute?",
+            "a": "1-5 gallons",
+            "b": "5-10 gallons",
+            "c": "10-15 gallons",
+            "d": "15-20 gallons",
+            "answer": "b"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "How much water is estimated to be leaking per year by US homes?",
+            "a": "100 million gallons",
+            "b": "10 billion gallons",
+            "c": "1 trillion gallons",
+            "d": "100 quintillion gallons",
+            "answer": "c"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "How many faucet drips are equivalent to 1 gallon of water?",
+            "a": "10210 drips",
+            "b": "15140 drips",
+            "c": "30420 drips",
+            "d": "60150 drips",
+            "answer": "b"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "How much groundwater is used per day in Hawaii according to 2005 study by USGS?",
+            "a": "180 million gallons",
+            "b": "1.8 billion gallons",
+            "c": "18 billion gallons",
+            "d": "180 billion gallons",
+            "answer": "b"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "What is the average rainfall per day in Hawaii?",
+            "a": "21 billion gallons",
+            "b": "31 billion gallons",
+            "c": "41 billion gallons",
+            "d": "51 billion gallons",
+            "answer": "a"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "Between what range does rainwater recharge aquafer in Hawaii?",
+            "a": "10-50%",
+            "b": "30-70%",
+            "c": "50-90%",
+            "d": "10-90%",
+            "answer": "a"
+        }
+    },   
+    {
+        "pk": 18,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "What uses the most water in a household?",
+            "a": "The sink",
+            "b": "The shower/bath",
+            "c": "The washing machine",
+            "d": "The toilet",
+            "answer": "d"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "What month is Detect-A-Leak week?",
+            "a": "March",
+            "b": "April",
+            "c": "May",
+            "d": "December",
+            "answer": "a"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "When was the last drought in Hawaii?",
+            "a": "1776",
+            "b": "1894",
+            "c": "1948",
+            "d": "2006",
+            "answer": "b"
+        }
+    },             
+    {
+        "pk": 21,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "What percent of the domestic water is provided by ground water?",
+            "a": "33%",
+            "b": "66%",
+            "c": "99%",
+            "d": "132%",
+            "answer": "c"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "What is the largest use of fresh water world-wide?",
+            "a": "Drinking Water",
+            "b": "Agriculture",
+            "c": "Industry",
+            "d": "Domestic Use",
+            "answer": "b"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "When is the best time to water the lawn?",
+            "a": "Morning",
+            "b": "Noon",
+            "c": "Night",
+            "d": "Any Time",
+            "answer": "c"
+        }
+    },
+    {
+        "pk": 24,
+        "model": "water_app.question",
+        "fields": {
+        	"question": "What is the current cost of water in Oahu(1000 gallons)?",
+            "a": "$3.06",
+            "b": "$3.50",
+            "c": "$4.44",
+            "d": "$5.99",
+            "answer": "a"
+        }
+    }
+]

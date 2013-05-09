@@ -5,14 +5,15 @@ when you run "manage.py test".
 Replace this with more appropriate tests for your widget.
 
 """
-from django.test import TransactionTestCase
+from django.test import TestCase
+from water_app.models import Question
 
+class QuestionTests(TestCase):
 
-class SimpleTest(TransactionTestCase):
-    """simple test class."""
+    fixtures = ['default_questions']
 
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.assertEqual(1 + 1, 2)
+    def testQuestions(self):
+        s = Question.objects.get(pk=1)
+        self.assertEquals(s.query, '??')
+        s.query = '??'
+        s.save()

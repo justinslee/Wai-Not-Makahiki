@@ -58,7 +58,7 @@ def main(argv):
             heroku_app = opt[1]
             manage_command = "heroku run --app %s python makahiki/manage.py" % heroku_app
 
-    if not instance_type in ("default", "demo", "test", "uh12"):
+    if not instance_type in ("default", "demo", "test", "uh12", "water"):
         script_utils.exit_with_help(__doc__)
 
     _ = args
