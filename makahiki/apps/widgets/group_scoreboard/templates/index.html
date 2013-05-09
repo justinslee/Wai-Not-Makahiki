@@ -1,0 +1,19 @@
+<div class="content-box">
+      <div class="content-box-title">
+          Group Scoreboard
+          <a href="#" style="float: right">
+              <img src="{{ STATIC_URL}}images/icons/icon-help-sm.png" width="20"
+                   align="center"
+                   title="Click to get help about this window"
+                   onclick="toggleHelp(event, 'widget', 'group-scoreboard'); return false;" />
+          </a>
+      </div>
+      <div class="content-box-contents">
+          <table border = "1"> 
+          <tr><td>Group Name</td> <td>Score</td></tr></br>
+          {% for u in view_objects.group_scoreboard.teampoints %}            
+               <tr><td>{{u.profile__team__group__name}}</td> <td>{{u.points}}</td></tr>
+          {% endfor %}
+          </table>
+      </div>
+</div>

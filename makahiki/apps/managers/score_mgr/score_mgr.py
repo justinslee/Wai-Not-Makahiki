@@ -391,6 +391,15 @@ def team_points(team, round_name=None):
                                                 round_name=round_name).aggregate(Sum("points"))
     return dictionary["points__sum"] or 0
 
+def group_points(group, round_name=None):
+    """Returns the total number of points for the team.  Optional parameter for a round."""
+    if not round_name:
+        round_name = challenge_mgr.get_round_name()
+
+    dictionary = ScoreboardEntry.objects.filter(profile__team__group=group,
+                                                round_name=round_name).aggregate(Sum("points")).order_by("-points")
+    return dictionary["points__sum"] or 0
+
 
 def team_points_leader(round_name=None):
     """Returns the team points leader (the first place) across all groups, as a Team ID."""
@@ -425,6 +434,54 @@ def team_points_leaders(num_results=None, round_name=None):
     else:
         return None
 
+def group_points_leader(round_name=None):
+    """Returns the group points leader across all groups, as a dictionary profile__team__name
+    and points.
+    """
+    if not round_name:
+        round_name = challenge_mgr.get_round_name()
+
+    entries = ScoreboardEntry.objects.filter(
+        round_name=round_name, profile__team__group__isnull=False).values(
+        "profile__team__group__name").annotate(
+            points=Sum("points"),
+            last=Max("last_awarded_submission")).order_by("-points", "-last")
+    if entries:
+        return entries[0]["profile__team__group__name"]
+    else:
+        return None
+
+def group_points(num_results=None, round_name=None):
+    """Returns the groups with their point totals"""
+    if not round_name:
+        round_name = challenge_mgr.get_round_name()
+    
+    entries = ScoreboardEntry.objects.filter(
+        round_name=round_name, profile__team__group__isnull=False).values(
+        "profile__team__group__name").annotate(
+            points=Sum("points"),
+            last=Max("last_awarded_submission")).order_by("-points", "-last")            
+    if entries:
+        if num_results:
+            entries = entries[:num_results]
+        return entries
+    else:
+        return None
+
+def group_awarded(group, round_name=None):
+    """Returns the group members"""
+    if not round_name:
+        round_name = challenge_mgr.get_round_name()
+    
+    entries = ScoreboardEntry.objects.filter(
+        round_name=round_name, group=group, profile__team__group__isnull=False).values(
+        "profile__team__group__name")            
+    total = 0
+    for entry in entries:
+        total = total + 1
+    
+    return total
+
 
 def team_points_leaders_in_group(group, num_results=None, round_name=None):
     """Returns the top points leaders for the given group."""
@@ -439,6 +496,7 @@ def team_points_leaders_in_group(group, num_results=None, round_name=None):
     if num_results:
         results = results[:num_results]
     return results
+
 
 
 def award_referral_bonus(referral, referrer):

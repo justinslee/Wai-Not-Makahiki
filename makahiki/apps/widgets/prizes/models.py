@@ -2,6 +2,7 @@
 from django.db import models
 from apps.managers.player_mgr import player_mgr
 from apps.managers.resource_mgr import resource_mgr
+from apps.managers.score_mgr import score_mgr
 
 from apps.managers.team_mgr import team_mgr
 from apps.managers.team_mgr.models import Group, Team
@@ -21,6 +22,7 @@ class Prize(models.Model):
         ("individual_team", "Individual (Team)"),
         ("team_overall", " Team (Overall)"),
         ("team_group", " Team (Group)"),
+        ("group_overall", "Group (Overall)"),
         )
     AWARD_CRITERIA_CHOICES = (
         ("points", "Points"),
@@ -87,6 +89,9 @@ class Prize(models.Model):
         elif self.award_to == "individual_team":
             # This is awarded to each team.
             return Team.objects.count()
+        elif self.award_to == "group_overall":
+            # This is awarded to each group.
+            return score_mgr.group_awarded(score_mgr.group_points_leader())
 
         raise Exception("Unknown award_to value '%s'" % self.award_to)
 
@@ -132,5 +137,7 @@ class Prize(models.Model):
                 if leaders:
                     return leaders[0]
             return None
+        elif self.award_to == "group_overall":
+            return score_mgr.group_points_leader()
 
         raise Exception("'%s' is not implemented yet." % self.award_to)

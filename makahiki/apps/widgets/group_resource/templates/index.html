@@ -1,0 +1,20 @@
+<div class="content-box">
+      <div class="content-box-title">
+          Group Energy Usage
+          <a href="#" style="float: right">
+              <img src="{{ STATIC_URL}}images/icons/icon-help-sm.png" width="20"
+                   align="center"
+                   title="Click to get help about this window"
+                   onclick="toggleHelp(event, 'widget', 'group-resource'); return false;" />
+          </a>
+      </div>
+      <div class="content-box-contents">
+          <table border = "1"> 
+          <tr><td>Group Name</td> <td>Energy(W)</td><td>Water(gal)</td><td>Waste(lbs)</td></tr></br>
+          {% for key,value in view_objects.group_resource.group_entries.items%}            
+               <tr><td>{{key}}</td>
+               <td>{{value.energy}}</td><td>{{value.water}}</td><td>{{value.waste}}</td></tr>
+
+          {% endfor %}
+      </div>
+</div>

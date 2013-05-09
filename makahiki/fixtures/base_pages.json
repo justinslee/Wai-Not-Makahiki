@@ -129,6 +129,19 @@
             "unlock_condition": "is_admin()"
         }
     },
+        {
+        "pk": 12,
+        "model": "challenge_mgr.pageinfo",
+        "fields": {
+            "name": "wai",
+            "title": "Wai Not?",
+            "introduction": "* Conserve Water\r\n* Have Fun\r\n*",
+            "label": "Wai Not?",
+            "priority": 12,
+            "url": "/wai",
+            "unlock_condition": "True"
+        }
+    },
     {
         "pk": 10,
         "model": "challenge_mgr.pagesetting",
@@ -548,6 +561,15 @@
             "widget": "status.DWGG",
             "enabled": true,
             "page": 10
+        }
+    },
+    {
+        "pk": 114,
+        "model": "challenge_mgr.pagesetting",
+        "fields": {
+            "widget": "water_app",
+            "enabled": true,
+            "page": 12
         }
     },
     {

@@ -56,6 +56,7 @@ def install_requirements():
 def push_to_heroku(heroku_app):
     """push to heroku."""
     print "push to heroku..."
+    print "cd " + manage_py_dir() + "; git push %s master" % heroku_app
     os.system("cd " + manage_py_dir() + "; git push %s master" % heroku_app)
 
 

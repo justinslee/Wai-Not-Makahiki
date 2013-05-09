@@ -1,0 +1,45 @@
+<div class="content-box">
+    <div class="content-box-title">
+        Individual Points
+     </div>
+
+    <!--Tabs-->
+    <ul id="ind-point-tab" class="nav nav-tabs">
+        {% for round_name, standings in view_objects.scoreboard.round_standings.items reversed %}
+            <li class="">
+                <a data-toggle="tab" href="#ind-point-{{round_name|cut:" "}}">{{round_name }}</a>
+            </li>
+        {% endfor %}  
+        </ul>
+
+    <!--Contents-->
+    <div class="tab-content">   
+        {% for round_name, standings in view_objects.scoreboard.round_standings.items %}  
+        <div id="ind-point-{{round_name|cut:" "}}" class="tab-pane"> 
+            <table class="table-striped">
+                <thead>
+                    <tr>
+                        <th class="column-number" width="10%">Rank</th>
+                        <th class="column-text" width="75%">Individual</th>
+                        <th class="column-number" width="15%">Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in standings.profile_standings %}
+                    <tr>
+                        <td class="column-number" width="10%">{{ forloop.counter }}</td>
+                        <td class="column-text" width="75%">{{ p.profile__name }}</td>
+                        <td class="column-number" width="15%">{{ p.points }}</td>
+                    </tr> 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div> 
+
+
+        {% endfor %} 
+    </div>  
+</div>
+<script type="text/javascript">
+$('#ind-point-tab a:first').tab('show');
+</script>

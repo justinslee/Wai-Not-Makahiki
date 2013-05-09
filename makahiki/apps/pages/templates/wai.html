@@ -1,36 +1,31 @@
 {% extends "logged_in_base.html" %}
 
 {% block page_title %}
-    Water
+    Wai
 {% endblock %}
 
-{% block selected_icon %}selected-water{% endblock %}
+{% block selected_icon %}selected-wai{% endblock %}
 
-{% block extra_head %}
+{% block extra_head %} 
+    <script src="{{STATIC_URL}}js/jquery.form.2.43.js" type="text/javascript"></script>
 {% endblock %}
 
-{% block body %}
+{% block body %} 
     <div class="container-fluid">
         <div class="row-fluid">
             <!-- left column -->
-            <div class="span10">
+            <div class="span8">
                 {% for template in view_objects.left_templates %}
                     {% include template %}
                 {% endfor %}
             </div>
+
             <!-- right column -->
-            <div class="span2">
+            <div class="span4">
                 {% for template in view_objects.right_templates %}
                     {% include template %}
                 {% endfor %}
             </div>
         </div>
     </div>
-
-    <table>
-        <tr><td width="40%" valign="top">
-        </td><td width="60%" valign="top">
-        </td>
-        </tr>
-    </table>
 {% endblock %}

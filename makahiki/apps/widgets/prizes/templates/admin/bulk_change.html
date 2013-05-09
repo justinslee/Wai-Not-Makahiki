@@ -14,7 +14,7 @@
 {% block content %}
         <form action="" method="post">{% csrf_token %}
             <div style="background-color: white;">
-                You've selected the following prizes:
+                You've selected the fllowing prizes:
                 <ul>
                 {% for obj in prizes %}
                     <li> {{ obj.title }}: {{obj.round}} - {{ obj.description }}

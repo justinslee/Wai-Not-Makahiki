@@ -69,7 +69,37 @@ def team_points_leaders(num_results=None, round_name=None):
         if num_results:
             results = results[:num_results]
         return results
-            
+def group_active participation(num_results=None, round_name=None):
+    """Calculate active participation."""
+    if not round_name:
+        round_name = challenge_mgr.get_round_name()
+
+    participation = cache_mgr.get_cache('active_p-%s' % slugify(round_name))
+    if participation is None:
+        active_participation = Group.objects.filter(
+            profile__scoreboardentry__points__gte=score_mgr.active_threshold_points(),
+            profile__scoreboardentry__round_name=round_name).annotate(
+                user_count=Count('profile')).order_by('-user_count')
+    if num_results:
+            active_participation = active_participation[:num_results]
+
+        participation = []
+        for t in active_participation:
+            if t.size:
+                t.active_participation = (t.user_count * 100) / t.size
+            else:
+                t.active_participation = (t.user_count * 100) / t.profile_set.count()
+            participation.append(t)
+
+        for t in Team.objects.all():
+            if len(participation) == num_results:
+                break
+
+            if not t in active_participation:
+                t.active_participation = 0
+                participation.append(t)
+        cache_mgr.set_cache('active_p-%s' % slugify(round_name), participation, 1800)
+    return participation                
 
 def team_active_participation(num_results=None, round_name=None):
     """Calculate active participation."""

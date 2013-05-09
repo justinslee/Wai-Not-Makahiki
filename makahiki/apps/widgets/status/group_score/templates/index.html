@@ -1,0 +1,47 @@
+<div class="content-box">
+    <div class="content-box-title">
+        {{ TEAM_LABEL.capitalize }} Point Scoreboard
+     </div>
+
+    <!--Tabs-->
+    <ul id="team-point-tab" class="nav nav-tabs">
+        {% for round_name, standings in view_objects.scoreboard.round_standings.items %}
+            <li class="">
+                <a data-toggle="tab" href="#team-point-{{round_name|cut:" "}}">{{round_name }}</a>
+            </li>
+        {% endfor %}  
+        </ul>
+
+    <!--Contents-->
+    <div class="tab-content">  
+        {% for round_name, standings in view_objects.scoreboard.round_standings.items %} 
+          <div id="team-point-{{round_name|cut:" "}}" class="tab-pane"> 
+            <div class="content-box-title">
+                {{ round_name }} Point Scoreboard
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>{{ TEAM_LABEL.capitalize }}</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for f in standings.team_standings %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ f.profile__team__name }}</td>
+                        <td>{{ f.points }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {% endfor %} 
+    </div>  
+</div>
+<script type="text/javascript">
+$('#team-point-tab a:first').tab('show');
+</script>

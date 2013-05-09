@@ -8,6 +8,7 @@ from apps.managers.team_mgr.models import Team
 from apps.widgets.smartgrid import smartgrid
 from django.conf import settings
 
+import time
 
 def competition(request):
     """Provides access to standard competition constants within a template.
@@ -84,7 +85,8 @@ def competition(request):
         "MAKAHIKI_ADMIN_GAME_MODELS": admin_models[1],
         "MAKAHIKI_DEVELOPER_CHALLENGE_MODELS": developer_models[0],
         "MAKAHIKI_DEVELOPER_GAME_MODELS": developer_models[1],
-        "ACTIVE_PAGE": page_name
+        "ACTIVE_PAGE": page_name,
+        "CURRENT_TIME": time.time()
     }
 
 

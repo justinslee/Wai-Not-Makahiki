@@ -1,0 +1,80 @@
+<div class="content-box">
+      <div class="content-box-title">
+          Wai Conserve
+          <a href="#" style="float: right">
+              <img src="{{ STATIC_URL}}images/icons/icon-help-sm.png" width="20"
+                   align="center"
+                   title="Click to get help about this window"
+                   onclick="toggleHelp(event, 'widget', 'water-app'); return false;" />
+          </a>
+      </div>
+      <div class="content-box-contents">
+<table>
+<tr>
+    <td>
+        <form action="" method="post" onSubmit=>
+        <input type="hidden" name="my_parameter" value="{{object.property}}">
+        <input type="submit" value="Home">
+        {% csrf_token %}
+        </form>
+    </td>
+    <td>
+        <form action="" method="post">
+        <input type="hidden" name="my_parameter" value="{{object.property}}">
+        <input type="submit" value="Water Game">
+        {% csrf_token %}
+        </form>
+    </td>
+</tr>
+<tr>
+    <td>
+        <form action="" method="post">
+        <input type="hidden" name="my_parameter" value="{{object.property}}">
+        <input type="submit" value="Events">
+        {% csrf_token %}
+        </form>
+    </td>
+    <td>
+        <form action="" method="post">
+        <input type="hidden" name="my_parameter" value="{{object.property}}">
+        <input type="submit" value="Daily Quests">
+        {% csrf_token %}
+        </form>
+    </td>
+</tr>
+<tr>
+    <td>
+        <form action="" method="post">
+        <input type="hidden" name="my_parameter" value="{{object.property}}">
+        <input type="submit" value="Wai Quiz Game">
+        {% csrf_token %}
+        </form>
+    </td>
+    <td>
+        <form action="" method="post">
+        <input type="hidden" name="my_parameter" value="{{object.property}}">
+        <input type="submit" value="Statistics">
+        {% csrf_token %}
+        </form>
+    </td>
+</tr>
+<tr>
+    <td>
+        <form action="" method="post">
+        <input type="hidden" name="my_parameter" value="{{object.property}}">
+        <input type="submit" value="Wai Timeline">
+        {% csrf_token %}
+        </form>
+    </td>
+    <td>
+        <form action="" method="post">
+        <input type="hidden" name="my_parameter" value="{{object.property}}">
+        <input type="submit" value="Map">
+        {% csrf_token %}
+        </form>
+    </td>
+</tr>
+</table>
+<em>{{ CURRENT_TIME}}</em>
+      </div>
+</div>

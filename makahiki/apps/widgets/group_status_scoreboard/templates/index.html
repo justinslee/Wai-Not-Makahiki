@@ -1,0 +1,167 @@
+<div id="outer-box" class="content-box">
+    {% if not view_objects.scoreboard.no_carousel %}
+    <div id="score-carousel">
+    {% endif %}
+        {% for round_name, standings in view_objects.scoreboard.round_standings.items reversed %}
+        <div class="item">
+            <div class="content-box-title set-width-outer-width">
+                Top Score Game (Team, {{ round_name }})
+                {% if not view_objects.scoreboard.no_carousel %}
+                    <a href="#" style="float: right">
+                       <img src="{{ STATIC_URL}}images/icons/icon-help-sm.png"
+                            width="20" align="center"
+                            title="Click to get help about this window"
+                            onclick="toggleHelp(event, 'widget', 'points-scoreboard'); return false;" />
+                       </a>
+                {% endif %}
+            </div>
+            <div class="set-width-outer-width">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="column-number column-left" width="10%">Rank</th>
+                        <th class="column-text" width="75%">{{ TEAM_LABEL.capitalize }}</th>
+                        <th class="column-number column-right" width="15%">Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for f in standings.team_standings %}
+                    <tr>
+                        <td class="column-number" width="10%">{% if view_objects.scoreboard.team.name == f.profile__team__name %}<b>{% endif %}
+                        {{ forloop.counter }}{% if view_objects.scoreboard.team.name == f.profile__team__name %}</b>{% endif %}</td>
+                        <td class="column-text" width="75%">{% if view_objects.scoreboard.team.name == f.profile__team__name %}<b>{% endif %}
+                        {{ f.profile__team__name }}{% if view_objects.scoreboard.team.name == f.profile__team__name %}</b>{% endif %}</td>
+                        <td class="column-number" width="15%">{% if view_objects.scoreboard.team.name == f.profile__team__name %}<b>{% endif %}
+                        {{ f.points }}{% if view_objects.scoreboard.team.name == f.profile__team__name %}</b>{% endif %}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        </div>
+        <div class="item">
+            <div class="content-box-title set-width-outer-width">
+                Top Score Game (Individual, {{round_name}})
+                {% if not view_objects.scoreboard.no_carousel %}
+                    <a href="#" style="float: right">
+                        <img src="{{ STATIC_URL}}images/icons/icon-help-sm.png"
+                             width="20" align="center"
+                             title="Click to get help about this window"
+                             onclick="toggleHelp(event, 'widget', 'points-scoreboard'); return false;" />
+                    </a>
+                {% endif %}
+            </div>
+            <div class="set-width-outer-width">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="column-number" width="10%">Rank</th>
+                        <th class="column-text" width="75%">Individual</th>
+                        <th class="column-number" width="15%">Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in standings.profile_standings %}
+                    <tr>
+                        
+                        <td class="column-number" width="10%">{% if view_objects.scoreboard.profile.name == p.profile__name %}<b>{% endif %}{{ forloop.counter }}{% if view_objects.scoreboard.profile.name == p.profile__name %}</b>{% endif %}</td>
+                        <td class="column-text" width="75%">{% if view_objects.scoreboard.profile.name == p.profile__name %}<b>{% endif %}{{ p.profile__name }}{% if view_objects.scoreboard.profile.name == p.profile__name %}</b>{% endif %}</td>
+                        <td class="column-number" width="15%">{% if view_objects.scoreboard.profile.name == p.profile__name %}<b>{% endif %}{{ p.points }}{% if view_objects.scoreboard.profile.name == p.profile__name %}</b>{% endif %}</td>
+         
+                    </tr> 
+                    {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        </div>
+        {% if standings.user_team_standings %}
+        <div class="item">
+            <div class="content-box-title set-width-outer-width">
+                 Top Score Game ({{view_objects.scoreboard.team}}, {{round_name}})
+                {% if not view_objects.scoreboard.no_carousel %}
+                   <a href="#" style="float: right">
+                       <img src="{{ STATIC_URL}}images/icons/icon-help-sm.png"
+                            width="20" align="center"
+                            title="Click to get help about this window"
+                            onclick="toggleHelp(event, 'widget', 'points-scoreboard'); return false;" />
+                   </a>
+                {% endif %}
+            </div>
+            <div class="set-width-outer-width">            
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="column-number" width="10%">Rank</th>
+                        <th class="column-text" width="75%">Individual in {{ view_objects.scoreboard.team }}</th>
+                        <th class="column-number" width="15%">Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for p in standings.user_team_standings %}
+                    <tr>
+                        <td class="column-number" width="10%">{% if view_objects.scoreboard.profile.name == p.name %}<b>{% endif %}{{ forloop.counter }}{% if view_objects.scoreboard.profile.name == p.name %}</b>{% endif %}</td>
+                        <td class="column-text" width="75%">{% if view_objects.scoreboard.profile.name == p.name %}<b>{% endif %}{{ p.name }}{% if view_objects.scoreboard.profile.name == p.name %}</b>{% endif %}</td>
+                        <td class="column-number" width="15%">{% if view_objects.scoreboard.profile.name == p.name %}<b>{% endif %}{{ p.scoreboardentry_points }}{% if view_objects.scoreboard.profile.name == p.name %}</b>{% endif %}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% if not view_objects.scoreboard.no_carousel %}
+        </div>
+        <center>
+            <div id="nav" class="nav nav-page-list">
+                {% for i in range  %}
+                    <a class="" href="#">{{i}}</a>
+                {% endfor %}
+            </div>
+        </center>
+        {% endif %}
+    </div>
+{% if not view_objects.scoreboard.no_carousel %}
+<script type="text/javascript">
+    $(document).ready(function () {
+    	  // Calculate the height of the items in the scoreboard.
+    	  // Fix the height of all items to that height.
+    	  var maxHeight = 45;
+    	  var height = 0;
+    	  $("#score-carousel .item").each(function(index, item) {
+    	    height = $(item).height();
+    	    // console.log("height of item is " + height);
+    	    if (height > maxHeight){
+    	      maxHeight = height;
+    	    }
+    	  });
+          maxHeight += $("#resource-scoreboard-message").height();    
+          $("#score-carousel").height(maxHeight);
+          
+          var outerWidth = $("#outer-box").width();
+//           console.log("Outer width is " + outerWidth);
+          $(".set-width-outer-width").each (function(index, item) {
+              item.style.width = outerWidth + "px";
+          });
+
+          $('#score-carousel').cycle({
+              fx: "fade",
+              timeout: 3500,
+              delay: -1000,
+              sync: true,
+              pager:  '#nav',
+              pause: 1
+          });
+    });
+
+    $(window).resize(function() {
+        var outerWidth = $("#outer-box").width();
+//         console.log("Outer width is " + outerWidth);
+        $(".set-width-outer-width").each (function(index, item) {
+//             console.log("Setting " + item + "'s width to " + outerWidth);
+            item.style.width = outerWidth + "px";
+        });     
+    }); 
+    
+</script>
+{% endif %}
